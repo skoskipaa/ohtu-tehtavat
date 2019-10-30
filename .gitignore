@@ -1,0 +1,7 @@
+*.tmp
+
+build/
+.gradle/
+
+.DS_Store
+.nb-gradle/
