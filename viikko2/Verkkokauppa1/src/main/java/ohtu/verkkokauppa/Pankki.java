@@ -1,14 +1,14 @@
 package ohtu.verkkokauppa;
 
 import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Pankki implements Maksunhallinta, Seuranta {
 
+    @Autowired
     private Seuranta kirjanpito;
-
-    public Pankki(Seuranta kirjanpito) {
-        this.kirjanpito = kirjanpito;
-    }
 
     @Override
     public boolean tilisiirto(String nimi, int viitenumero, String tililta, String tilille, int summa) {
