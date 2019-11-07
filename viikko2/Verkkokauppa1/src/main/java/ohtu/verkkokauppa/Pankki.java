@@ -1,20 +1,13 @@
 package ohtu.verkkokauppa;
 
-public class Pankki implements Maksunhallinta {
+import java.util.ArrayList;
 
-    private static Pankki instanssi;
+public class Pankki implements Maksunhallinta, Seuranta {
 
-    public static Pankki getInstance() {
-        if (instanssi == null) {
-            instanssi = new Pankki();
-        }
+    private Seuranta kirjanpito;
 
-        return instanssi;
-    }
-    private Kirjanpito kirjanpito;
-
-    public Pankki() {
-        kirjanpito = Kirjanpito.getInstance();
+    public Pankki(Seuranta kirjanpito) {
+        this.kirjanpito = kirjanpito;
     }
 
     @Override
@@ -24,5 +17,15 @@ public class Pankki implements Maksunhallinta {
 
         // täällä olisi koodi joka ottaa yhteyden pankin verkkorajapintaan
         return true;
+    }
+
+    @Override
+    public ArrayList<String> getTapahtumat() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void lisaaTapahtuma(String tapahtuma) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

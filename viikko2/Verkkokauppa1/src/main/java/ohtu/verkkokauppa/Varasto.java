@@ -2,23 +2,13 @@ package ohtu.verkkokauppa;
 
 import java.util.*;
 
-public class Varasto implements VarastoInterface {
+public class Varasto implements VarastoInterface, Seuranta {
 
-    private static Varasto instanssi;
-
-    public static Varasto getInstance() {
-        if (instanssi == null) {
-            instanssi = new Varasto();
-        }
-
-        return instanssi;
-    }
-    
-    private Kirjanpito kirjanpito;
+    private Seuranta kirjanpito;
     private HashMap<Tuote, Integer> saldot;  
     
-    private Varasto() {
-        kirjanpito = Kirjanpito.getInstance();
+    public Varasto(Seuranta kirjanpito) {
+        this.kirjanpito = kirjanpito;
         saldot = new HashMap<Tuote, Integer>();
         alustaTuotteet();
     }
@@ -55,5 +45,15 @@ public class Varasto implements VarastoInterface {
         saldot.put(new Tuote(3, "Sierra Nevada Pale Ale", 5), 30);
         saldot.put(new Tuote(4, "Mikkeller not just another Wit", 7), 40);
         saldot.put(new Tuote(5, "Weihenstephaner Hefeweisse", 4), 15);
+    }
+
+    @Override
+    public ArrayList<String> getTapahtumat() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void lisaaTapahtuma(String tapahtuma) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
