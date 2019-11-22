@@ -12,7 +12,7 @@ public class IntJoukko {
     public IntJoukko() {
         this(KOKO);
     }
-    
+
     public IntJoukko(int kapasiteetti) {
         this(KOKO, KASVATAVIIDELLA);
     }
@@ -44,7 +44,7 @@ public class IntJoukko {
             alkioidenLkm++;
 
             if (alkioidenLkm % joukko.length == 0) {
-               kasvataTaulukkoa();
+                kasvataTaulukkoa();
             }
             return true;
         }
@@ -117,7 +117,7 @@ public class IntJoukko {
         IntJoukko leikkaus = new IntJoukko();
         int[] joukkoA = a.muodostaJoukko();
         int[] joukkoB = b.muodostaJoukko();
-        
+
         for (int i = 0; i < joukkoA.length; i++) {
             for (int j = 0; j < joukkoB.length; j++) {
                 if (joukkoA[i] == joukkoB[j]) {
@@ -132,7 +132,7 @@ public class IntJoukko {
         IntJoukko erotus = new IntJoukko();
         int[] joukkoA = a.muodostaJoukko();
         int[] joukkoB = b.muodostaJoukko();
-        
+
         for (int i = 0; i < joukkoA.length; i++) {
             erotus.lisaaJoukkoon(joukkoA[i]);
         }
@@ -148,26 +148,26 @@ public class IntJoukko {
             joukko[i] = 0;
         }
     }
-    
+
     private void kopioiTaulukko(int[] vanha, int[] uusi) {
         System.arraycopy(vanha, 0, uusi, 0, vanha.length);
 
     }
-    
+
     private void kasvataTaulukkoa() {
         int[] apuTaulukko = new int[joukko.length];
-                apuTaulukko = joukko;
-                kopioiTaulukko(joukko, apuTaulukko);
-                joukko = new int[alkioidenLkm + lisays];
-                kopioiTaulukko(apuTaulukko, joukko);
+        apuTaulukko = joukko;
+        kopioiTaulukko(joukko, apuTaulukko);
+        joukko = new int[alkioidenLkm + lisays];
+        kopioiTaulukko(apuTaulukko, joukko);
     }
-    
+
     private void siirraLukujaTaaksepain(int indeksista) {
-         for (int j = indeksista; j < alkioidenLkm - 1; j++) {
-                    int luku = joukko[j];
-                    joukko[j] = joukko[j + 1];
-                    joukko[j + 1] = luku;
-                }
+        for (int j = indeksista; j < alkioidenLkm - 1; j++) {
+            int luku = joukko[j];
+            joukko[j] = joukko[j + 1];
+            joukko[j + 1] = luku;
+        }
     }
 
 }
