@@ -24,16 +24,20 @@ public class TennisGame {
     public String getScore() {
 
         if (isEven()) {
-            score = scoreIsEven(player1Score);
+            score = returnEven(player1Score);
         } else if (isAdvantageOrWin()) {
-            scoreIsAnvantageOrWin();
+            returnAdvantageOrWin();
         } else {
             score = returnScore();
         }
         return score;
     }
 
-    private String scoreIsEven(int player1score) {
+    public boolean isEven() {
+        return (player1Score == player2Score);
+    }
+
+    private String returnEven(int player1score) {
         switch (player1Score) {
             case 0:
                 return "Love-All";
@@ -52,9 +56,13 @@ public class TennisGame {
         }
     }
 
-    private void scoreIsAnvantageOrWin() {
+    public boolean isAdvantageOrWin() {
+        return (player1Score >= 4 || player2Score >= 4);
+    }
+
+    private void returnAdvantageOrWin() {
         int scoreDifference = player1Score - player2Score;
-        
+
         if (Math.abs(scoreDifference) >= 2) {
             isWin(scoreDifference);
         }
@@ -68,7 +76,7 @@ public class TennisGame {
             score = "Advantage player2";
         }
     }
-    
+
     private void isWin(int scoreDifference) {
         if (scoreDifference >= 2) {
             score = "Win for player1";
@@ -106,11 +114,4 @@ public class TennisGame {
         return score;
     }
 
-    public boolean isEven() {
-        return (player1Score == player2Score);
-    }
-
-    public boolean isAdvantageOrWin() {
-        return (player1Score >= 4 || player2Score >= 4);
-    }
 }

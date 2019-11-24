@@ -13,7 +13,7 @@ public class JoukkoOperaatiotTest {
         IntJoukko toka = teeJoukko(3,4);
         
         IntJoukko tulos = IntJoukko.yhdiste(eka, toka);
-        int[] vastauksenLuvut = tulos.muodostaJoukko();
+        int[] vastauksenLuvut = tulos.muodostaJoukostaTaulukko();
         Arrays.sort(vastauksenLuvut);
         
         int[] odotettu = {1,2,3,4};
@@ -27,7 +27,7 @@ public class JoukkoOperaatiotTest {
         IntJoukko toka = teeJoukko(2,3,4);
         
         IntJoukko tulos = IntJoukko.leikkaus(eka, toka);
-        int[] vastauksenLuvut = tulos.muodostaJoukko();
+        int[] vastauksenLuvut = tulos.muodostaJoukostaTaulukko();
         Arrays.sort(vastauksenLuvut);
         
         int[] odotettu = {2};
@@ -41,7 +41,7 @@ public class JoukkoOperaatiotTest {
         IntJoukko toka = teeJoukko(2,3,4);
         
         IntJoukko tulos = IntJoukko.erotus(eka, toka);
-        int[] vastauksenLuvut = tulos.muodostaJoukko();
+        int[] vastauksenLuvut = tulos.muodostaJoukostaTaulukko();
         Arrays.sort(vastauksenLuvut);
         
         int[] odotettu = {1, 5, 6};
