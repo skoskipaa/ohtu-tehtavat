@@ -22,11 +22,9 @@ public class Tapahtumankuuntelija implements EventHandler {
         this.sovellus = new Sovelluslogiikka();
         komennot = new HashMap<>();
         
-        
         komennot.put(plus, new Summa(tuloskentta, syotekentta, nollaa, undo, sovellus));
         komennot.put(miinus, new Erotus(tuloskentta, syotekentta, nollaa, undo, sovellus));
         komennot.put(nollaa, new Nollaa(tuloskentta, syotekentta, nollaa, undo, sovellus));
-        
     }
 
     @Override
