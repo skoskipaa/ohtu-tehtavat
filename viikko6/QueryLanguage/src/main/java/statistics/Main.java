@@ -27,14 +27,27 @@ public class Main {
 //        Matcher m = new Or(new HasAtLeast(20, "goals"),
 //                new HasAtLeast(20, "assists")
 //        );
-        Matcher m = new And(
-                new HasAtLeast(20, "points"),
-                new Or(
-                        new PlaysIn("NYR"),
-                        new PlaysIn("NYI"),
-                        new PlaysIn("NJD")
-                )
-        );
+//        Matcher m = new And(
+//                new HasAtLeast(20, "points"),
+//                new Or(
+//                        new PlaysIn("NYR"),
+//                        new PlaysIn("NYI"),
+//                        new PlaysIn("NJD")
+//                )
+//        );
+        QueryBuilder query = new QueryBuilder();
+//        Matcher m = query.playsIn("NYR")
+//                .hasAtLeast(5, "goals")
+//                .hasFewerThan(10, "goals")
+//                .build();
+
+        Matcher m = query.oneOf(
+                query.playsIn("PHI")
+                        .hasAtLeast(10, "assists")
+                        .hasFewerThan(8, "goals").build(),
+                query.playsIn("EDM")
+                        .hasAtLeast(20, "points").build()
+        ).build();
 
         for (Player player : stats.matches(m)) {
             System.out.println(player);
